@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Noto_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { Inter } from "next/font/google";
 
+const inter = Inter({
+  subsets: ["latin"],
+});
 const playfairDisplayHeading = Playfair_Display({subsets:['latin'],variable:'--font-heading'});
 
 const notoSans = Noto_Sans({subsets:['latin'],variable:'--font-sans'});
