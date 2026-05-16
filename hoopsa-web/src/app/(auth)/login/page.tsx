@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function SignIn() {
+export default function SignUp() {
   return (
     <div className="flex min-h-screen bg-[#0e1210] font-sans text-white lg:grid lg:grid-cols-2">
 
@@ -8,7 +8,7 @@ export default function SignIn() {
       <div className="relative hidden flex-col justify-between overflow-hidden bg-[#0a0f0d] p-10 lg:flex lg:px-12 lg:py-10">
 
         {/* Glows */}
-        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_90%_70%_at_30%_110%,rgba(29,158,117,0.28)_0%,transparent_60%),radial-gradient(ellipse_60%_50%_at_80%_-10%,rgba(29,158,117,0.12)_0%,transparent_60%)]" />
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_65%_at_20%_105%,rgba(29,158,117,0.30)_0%,transparent_60%),radial-gradient(ellipse_55%_45%_at_90%_-10%,rgba(29,158,117,0.13)_0%,transparent_60%)]" />
         <div
           className="absolute inset-0 z-0 opacity-[0.04]"
           style={{
@@ -25,31 +25,40 @@ export default function SignIn() {
 
         {/* Body */}
         <div className="relative z-10 pb-6">
-          <p className="mb-5 text-xs uppercase tracking-[0.12em] text-[#5DCAA5]">Welcome back, baller</p>
+          <p className="mb-5 text-xs uppercase tracking-[0.12em] text-[#5DCAA5]">Free to join</p>
           <h2 className="mb-6 font-['Barlow_Condensed'] text-[clamp(44px,4.5vw,64px)] font-extrabold leading-[0.93] text-white">
-            Back on<br />the{" "}
-            <span className="text-[#1D9E75]">court.</span>
+            Join the<br />
+            <span className="text-[#1D9E75]">movement.</span>
           </h2>
-          <p className="max-w-[320px] text-[15px] leading-[1.7] text-white/45">
-            Your games, crews, and live scores are waiting. Sign in and pick up right where you left off.
+          <p className="mb-8 max-w-[320px] text-[15px] leading-[1.7] text-white/45">
+            Thousands of ballers are already on HoopSA. Find games, build your rep, and never miss a run again.
           </p>
+
+          {/* Perks */}
+          <div className="space-y-4">
+            {[
+              { icon: "🏀", title: "Live scores everywhere", sub: "Follow games across your city in real time" },
+              { icon: "📍", title: "180+ courts mapped", sub: "Find the best spot near you, any time of day" },
+              { icon: "🤝", title: "Build your crew", sub: "Connect with players and form squads" },
+            ].map((p) => (
+              <div key={p.title} className="flex items-start gap-3">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-[#1D9E75]/15 text-base mt-[1px]">
+                  {p.icon}
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-white/85">{p.title}</p>
+                  <p className="text-[13px] text-white/35">{p.sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Stats */}
-        <div className="relative z-10 flex gap-8">
-          <div>
-            <p className="font-['Barlow_Condensed'] text-[34px] font-extrabold leading-none text-white">12</p>
-            <p className="mt-1 text-xs uppercase tracking-[0.08em] text-white/30">Live courts</p>
-          </div>
-          <div>
-            <p className="font-['Barlow_Condensed'] text-[34px] font-extrabold leading-none text-white">2.4K</p>
-            <p className="mt-1 text-xs uppercase tracking-[0.08em] text-white/30">Players online</p>
-          </div>
-        </div>
+        <div className="relative z-10" />
       </div>
 
       {/* ── RIGHT PANEL ── */}
-      <div className="flex flex-1 flex-col justify-center px-7 py-14 lg:px-14 animate-[fadeIn_0.45s_ease_both]">
+      <div className="flex flex-1 flex-col justify-center px-7 py-12 lg:px-14 animate-[fadeIn_0.45s_ease_both]">
 
         <div className="mx-auto w-full max-w-sm">
           {/* Mobile logo */}
@@ -59,16 +68,42 @@ export default function SignIn() {
           </Link>
 
           <h1 className="mb-2 font-['Barlow_Condensed'] text-[42px] font-extrabold leading-none tracking-tight text-white">
-            Sign in
+            Create account
           </h1>
-          <p className="mb-9 text-[15px] text-white/40">
-            No account?{" "}
-            <Link href="/signup" className="font-medium text-[#5DCAA5] no-underline hover:underline">
-              Create one free
+          <p className="mb-8 text-[15px] text-white/40">
+            Already have one?{" "}
+            <Link href="/signin" className="font-medium text-[#5DCAA5] no-underline hover:underline">
+              Sign in
             </Link>
           </p>
 
           <div className="space-y-4">
+            {/* Name row */}
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
+                  First name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Jordan"
+                  autoComplete="given-name"
+                  className="w-full rounded-[14px] border border-white/9 bg-white/5 px-[18px] py-[14px] text-[15px] text-white outline-none placeholder:text-white/18 transition focus:border-[#1D9E75]/55 focus:bg-[#1D9E75]/5"
+                />
+              </div>
+              <div>
+                <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
+                  Last name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Lee"
+                  autoComplete="family-name"
+                  className="w-full rounded-[14px] border border-white/9 bg-white/5 px-[18px] py-[14px] text-[15px] text-white outline-none placeholder:text-white/18 transition focus:border-[#1D9E75]/55 focus:bg-[#1D9E75]/5"
+                />
+              </div>
+            </div>
+
             {/* Email */}
             <div>
               <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
@@ -84,32 +119,40 @@ export default function SignIn() {
 
             {/* Password */}
             <div>
-              <div className="mb-[9px] flex items-center justify-between">
-                <label className="text-xs font-medium uppercase tracking-[0.07em] text-white/38">
-                  Password
-                </label>
-                <Link href="#" className="text-[13px] text-white/30 hover:text-[#5DCAA5]">
-                  Forgot password?
-                </Link>
-              </div>
+              <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
+                Password
+              </label>
               <input
                 type="password"
-                placeholder="••••••••"
-                autoComplete="current-password"
+                placeholder="Create a strong password"
+                autoComplete="new-password"
+                className="w-full rounded-[14px] border border-white/9 bg-white/5 px-[18px] py-[14px] text-[15px] text-white outline-none placeholder:text-white/18 transition focus:border-[#1D9E75]/55 focus:bg-[#1D9E75]/5"
+              />
+            </div>
+
+            {/* City */}
+            <div>
+              <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
+                Your city
+              </label>
+              <input
+                type="text"
+                placeholder="e.g. Johannesburg"
+                autoComplete="address-level2"
                 className="w-full rounded-[14px] border border-white/9 bg-white/5 px-[18px] py-[14px] text-[15px] text-white outline-none placeholder:text-white/18 transition focus:border-[#1D9E75]/55 focus:bg-[#1D9E75]/5"
               />
             </div>
           </div>
 
           {/* Submit */}
-          <button className="mt-2 w-full rounded-[14px] bg-[#1D9E75] py-[15px] text-[15px] font-medium text-white transition hover:bg-[#22b887] hover:-translate-y-px hover:shadow-[0_8px_24px_rgba(29,158,117,0.38)] mt-6">
-            Sign in to HoopSA
+          <button className="mt-6 w-full rounded-[14px] bg-[#1D9E75] py-[15px] text-[15px] font-medium text-white transition hover:bg-[#22b887] hover:-translate-y-px hover:shadow-[0_8px_24px_rgba(29,158,117,0.38)]">
+            Create my account
           </button>
 
           {/* Divider */}
           <div className="my-5 flex items-center gap-3 text-xs tracking-[0.06em] text-white/20">
             <span className="flex-1 border-t border-white/7" />
-            or continue with
+            or sign up with
             <span className="flex-1 border-t border-white/7" />
           </div>
 
@@ -119,10 +162,17 @@ export default function SignIn() {
             Google
           </button>
 
-          <p className="mt-7 text-center text-sm text-white/30">
-            New to HoopSA?{" "}
-            <Link href="/signup" className="font-medium text-[#5DCAA5] no-underline hover:underline">
-              Sign up — it&apos;s free
+          <p className="mt-4 text-center text-xs leading-[1.6] text-white/22">
+            By creating an account you agree to our{" "}
+            <Link href="#" className="text-white/40 hover:text-[#5DCAA5]">Terms of Service</Link>{" "}
+            and{" "}
+            <Link href="#" className="text-white/40 hover:text-[#5DCAA5]">Privacy Policy</Link>
+          </p>
+
+          <p className="mt-5 text-center text-sm text-white/30">
+            Already a baller?{" "}
+            <Link href="/signin" className="font-medium text-[#5DCAA5] no-underline hover:underline">
+              Sign in
             </Link>
           </p>
         </div>
