@@ -1,142 +1,201 @@
 import Link from "next/link";
 
-export default function Home() {
+export default function SignUp() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#0e1210] text-white font-sans">
+    <div className="flex min-h-screen bg-[#0e1210] font-sans text-white lg:grid lg:grid-cols-2">
 
-      {/* Background layers */}
-      <div className="fixed inset-0 z-0 bg-[radial-gradient(ellipse_70%_55%_at_65%_-5%,rgba(29,158,117,0.22)_0%,transparent_65%),radial-gradient(ellipse_45%_35%_at_10%_90%,rgba(29,158,117,0.10)_0%,transparent_65%)]" />
-      <div
-        className="fixed inset-0 z-0 opacity-[0.035]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,1) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,1) 60px)",
-        }}
-      />
+      {/* ── LEFT PANEL ── */}
+      <div className="relative hidden flex-col justify-between overflow-hidden bg-[#0a0f0d] p-10 lg:flex lg:px-12 lg:py-10">
 
-      <div className="relative z-10 mx-auto max-w-5xl px-7">
+        {/* Glows */}
+        <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_65%_at_20%_105%,rgba(29,158,117,0.30)_0%,transparent_60%),radial-gradient(ellipse_55%_45%_at_90%_-10%,rgba(29,158,117,0.13)_0%,transparent_60%)]" />
+        <div
+          className="absolute inset-0 z-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,1) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,1) 60px)",
+          }}
+        />
 
-        {/* NAV */}
-        <nav className="flex items-center justify-between pt-8">
-          <Link href="/" className="flex items-center gap-2 font-['Barlow_Condensed'] text-[28px] font-extrabold tracking-[0.05em] text-white no-underline">
-            <span className="inline-block h-[11px] w-[11px] animate-pulse rounded-full bg-[#1D9E75]" />
+        {/* Logo */}
+        <Link href="/" className="relative z-10 flex items-center gap-2 font-['Barlow_Condensed'] text-[28px] font-extrabold tracking-[0.05em] text-white no-underline">
+          <span className="inline-block h-[10px] w-[10px] animate-pulse rounded-full bg-[#1D9E75]" />
+          HOOPSA
+        </Link>
+
+        {/* Body */}
+        <div className="relative z-10 pb-6">
+          <p className="mb-5 text-xs uppercase tracking-[0.12em] text-[#5DCAA5]">Free to join</p>
+          <h2 className="mb-6 font-['Barlow_Condensed'] text-[clamp(44px,4.5vw,64px)] font-extrabold leading-[0.93] text-white">
+            Join the<br />
+            <span className="text-[#1D9E75]">movement.</span>
+          </h2>
+          <p className="mb-8 max-w-[320px] text-[15px] leading-[1.7] text-white/45">
+            Thousands of ballers are already on HoopSA. Find games, build your rep, and never miss a run again.
+          </p>
+
+          {/* Perks */}
+          <div className="space-y-4">
+            {[
+              { icon: "🏀", title: "Live scores everywhere", sub: "Follow games across your city in real time" },
+              { icon: "📍", title: "180+ courts mapped", sub: "Find the best spot near you, any time of day" },
+              { icon: "🤝", title: "Build your crew", sub: "Connect with players and form squads" },
+            ].map((p) => (
+              <div key={p.title} className="flex items-start gap-3">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-[#1D9E75]/15 text-base mt-[1px]">
+                  {p.icon}
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-white/85">{p.title}</p>
+                  <p className="text-[13px] text-white/35">{p.sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="relative z-10" />
+      </div>
+
+      {/* ── RIGHT PANEL ── */}
+      <div className="flex flex-1 flex-col justify-center px-7 py-12 lg:px-14 animate-[fadeIn_0.45s_ease_both]">
+
+        <div className="mx-auto w-full max-w-sm">
+          {/* Mobile logo */}
+          <Link href="/" className="mb-8 flex items-center gap-2 font-['Barlow_Condensed'] text-[26px] font-extrabold tracking-[0.05em] text-white no-underline lg:hidden">
+            <span className="inline-block h-[9px] w-[9px] animate-pulse rounded-full bg-[#1D9E75]" />
             HOOPSA
           </Link>
-          <div className="flex gap-3">
-            <Link
-              href="/signin"
-              className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 bg-transparent px-6 text-sm font-medium text-white/60 transition hover:border-white/30 hover:bg-white/7 hover:text-white"
-            >
+
+          <h1 className="mb-2 font-['Barlow_Condensed'] text-[42px] font-extrabold leading-none tracking-tight text-white">
+            Create account
+          </h1>
+          <p className="mb-8 text-[15px] text-white/40">
+            Already have one?{" "}
+            <Link href="/signin" className="font-medium text-[#5DCAA5] no-underline hover:underline">
               Sign in
             </Link>
-            <Link
-              href="/signup"
-              className="inline-flex h-11 items-center justify-center rounded-full bg-[#1D9E75] px-6 text-sm font-medium text-white transition hover:bg-[#22b887] hover:shadow-[0_6px_22px_rgba(29,158,117,0.4)] hover:-translate-y-px"
-            >
-              Get started
-            </Link>
-          </div>
-        </nav>
+          </p>
 
-        {/* HERO */}
-        <div className="grid grid-cols-1 items-center gap-14 py-24 lg:grid-cols-2 lg:gap-16">
-
-          {/* Left */}
-          <div className="animate-[fadeUp_0.6s_ease_0.1s_both]">
-            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#5DCAA5]/30 bg-[#1D9E75]/12 px-4 py-[6px] text-xs font-medium uppercase tracking-[0.09em] text-[#5DCAA5]">
-              <span className="inline-block h-[6px] w-[6px] animate-pulse rounded-full bg-[#5DCAA5]" />
-              12 courts active now
-            </div>
-            <h1 className="mb-6 font-['Barlow_Condensed'] text-[clamp(58px,7vw,86px)] font-extrabold leading-[0.93] tracking-tight text-white">
-              Your city.<br />
-              <span className="text-[#1D9E75]">Your game.</span><br />
-              Your crew.
-            </h1>
-            <p className="mb-11 max-w-[380px] text-base leading-[1.7] text-white/50">
-              Find pickup games, follow live scores, and discover the best courts near you — all in one app.
-            </p>
-            <p className="mb-3 text-xs uppercase tracking-[0.08em] text-white/30">Join the community</p>
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/signup"
-                className="inline-flex items-center rounded-full bg-[#1D9E75] px-9 py-[15px] text-[15px] font-medium text-white transition hover:bg-[#22b887] hover:-translate-y-0.5 hover:shadow-[0_8px_26px_rgba(29,158,117,0.4)]"
-              >
-                Create account
-              </Link>
-              <Link
-                href="/signin"
-                className="inline-flex items-center rounded-full border border-white/15 bg-transparent px-9 py-[15px] text-[15px] font-medium text-white/70 transition hover:border-white/32 hover:bg-white/5 hover:text-white"
-              >
-                Sign in
-              </Link>
-            </div>
-          </div>
-
-          {/* Right panel */}
-          <div className="animate-[fadeUp_0.6s_ease_0.25s_both] rounded-[28px] border border-white/9 bg-white/[0.035] p-8 backdrop-blur-xl">
-            <p className="mb-4 text-xs uppercase tracking-[0.12em] text-[#5DCAA5]">Today's top match</p>
-            <div className="mb-4 rounded-[20px] border border-white/8 bg-white/5 p-5">
-              <p className="mb-2 font-['Barlow_Condensed'] text-[22px] font-semibold leading-[1.1]">
-                Northside Knights vs Downtown Ballers
-              </p>
-              <p className="text-[13px] text-white/40">3:15 PM · Court 7 · 8 spots remaining</p>
-            </div>
+          <div className="space-y-4">
+            {/* Name row */}
             <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-[16px] bg-black/30 p-[18px]">
-                <p className="mb-2 text-[11px] uppercase tracking-[0.1em] text-white/35">Win streak</p>
-                <p className="font-['Barlow_Condensed'] text-[36px] font-extrabold leading-none">7</p>
+              <div>
+                <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
+                  First name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Jordan"
+                  autoComplete="given-name"
+                  className="w-full rounded-[14px] border border-white/9 bg-white/5 px-[18px] py-[14px] text-[15px] text-white outline-none placeholder:text-white/18 transition focus:border-[#1D9E75]/55 focus:bg-[#1D9E75]/5"
+                />
               </div>
-              <div className="rounded-[16px] bg-black/30 p-[18px]">
-                <p className="mb-2 text-[11px] uppercase tracking-[0.1em] text-white/35">Courts live</p>
-                <p className="font-['Barlow_Condensed'] text-[36px] font-extrabold leading-none">12</p>
+              <div>
+                <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
+                  Last name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Lee"
+                  autoComplete="family-name"
+                  className="w-full rounded-[14px] border border-white/9 bg-white/5 px-[18px] py-[14px] text-[15px] text-white outline-none placeholder:text-white/18 transition focus:border-[#1D9E75]/55 focus:bg-[#1D9E75]/5"
+                />
               </div>
+            </div>
+
+            {/* Email */}
+            <div>
+              <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
+                Email address
+              </label>
+              <input
+                type="email"
+                placeholder="you@example.com"
+                autoComplete="email"
+                className="w-full rounded-[14px] border border-white/9 bg-white/5 px-[18px] py-[14px] text-[15px] text-white outline-none placeholder:text-white/18 transition focus:border-[#1D9E75]/55 focus:bg-[#1D9E75]/5"
+              />
+            </div>
+
+            {/* Password */}
+            <div>
+              <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
+                Password
+              </label>
+              <input
+                type="password"
+                placeholder="Create a strong password"
+                autoComplete="new-password"
+                className="w-full rounded-[14px] border border-white/9 bg-white/5 px-[18px] py-[14px] text-[15px] text-white outline-none placeholder:text-white/18 transition focus:border-[#1D9E75]/55 focus:bg-[#1D9E75]/5"
+              />
+            </div>
+
+            {/* City */}
+            <div>
+              <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
+                Your city
+              </label>
+              <input
+                type="text"
+                placeholder="e.g. Johannesburg"
+                autoComplete="address-level2"
+                className="w-full rounded-[14px] border border-white/9 bg-white/5 px-[18px] py-[14px] text-[15px] text-white outline-none placeholder:text-white/18 transition focus:border-[#1D9E75]/55 focus:bg-[#1D9E75]/5"
+              />
             </div>
           </div>
-        </div>
 
-        {/* STATS */}
-        <div className="animate-[fadeUp_0.6s_ease_0.4s_both] grid grid-cols-3 border-t border-white/6 py-12">
-          {[
-            { num: "2.4K", label: "Active players" },
-            { num: "180+", label: "Courts mapped" },
-            { num: "1.2K", label: "Games played" },
-          ].map((s, i) => (
-            <div key={s.label} className={`text-center px-5 ${i > 0 ? "border-l border-white/6" : ""}`}>
-              <p className="font-['Barlow_Condensed'] text-[44px] font-extrabold leading-none text-white">{s.num}</p>
-              <p className="mt-[7px] text-xs uppercase tracking-[0.1em] text-white/32">{s.label}</p>
-            </div>
-          ))}
-        </div>
+          {/* Submit */}
+          <button className="mt-6 w-full rounded-[14px] bg-[#1D9E75] py-[15px] text-[15px] font-medium text-white transition hover:bg-[#22b887] hover:-translate-y-px hover:shadow-[0_8px_24px_rgba(29,158,117,0.38)]">
+            Create my account
+          </button>
 
-        {/* FEATURES */}
-        <div className="animate-[fadeUp_0.6s_ease_0.5s_both] grid grid-cols-1 gap-4 pb-20 md:grid-cols-3">
-          {[
-            { icon: "🏀", title: "Live Scores", desc: "Follow pickup games, local leagues, and weekend tournaments in real time." },
-            { icon: "📍", title: "Court Discovery", desc: "Find the best courts near you with hours, features, and live availability." },
-            { icon: "🤝", title: "Build Your Crew", desc: "Connect with players, form teams, and organise games in your neighbourhood." },
-          ].map((f) => (
-            <div
-              key={f.title}
-              className="group rounded-[22px] border border-white/7 bg-white/[0.03] p-7 transition hover:border-[#1D9E75]/30 hover:bg-[#1D9E75]/5"
-            >
-              <div className="mb-[18px] flex h-11 w-11 items-center justify-center rounded-[12px] bg-[#1D9E75]/14 text-[22px]">
-                {f.icon}
-              </div>
-              <p className="mb-2 text-base font-medium text-white">{f.title}</p>
-              <p className="text-sm leading-[1.6] text-white/40">{f.desc}</p>
-            </div>
-          ))}
-        </div>
+          {/* Divider */}
+          <div className="my-5 flex items-center gap-3 text-xs tracking-[0.06em] text-white/20">
+            <span className="flex-1 border-t border-white/7" />
+            or sign up with
+            <span className="flex-1 border-t border-white/7" />
+          </div>
 
+          {/* Google */}
+          <button className="flex w-full items-center justify-center gap-[10px] rounded-[14px] border border-white/10 bg-white/5 py-[14px] text-sm font-medium text-white/75 transition hover:bg-white/9 hover:text-white">
+            <GoogleIcon />
+            Google
+          </button>
+
+          <p className="mt-4 text-center text-xs leading-[1.6] text-white/22">
+            By creating an account you agree to our{" "}
+            <Link href="#" className="text-white/40 hover:text-[#5DCAA5]">Terms of Service</Link>{" "}
+            and{" "}
+            <Link href="#" className="text-white/40 hover:text-[#5DCAA5]">Privacy Policy</Link>
+          </p>
+
+          <p className="mt-5 text-center text-sm text-white/30">
+            Already a baller?{" "}
+            <Link href="/signin" className="font-medium text-[#5DCAA5] no-underline hover:underline">
+              Sign in
+            </Link>
+          </p>
+        </div>
       </div>
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=DM+Sans:wght@400;500&display=swap');
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(22px); }
-          to   { opacity: 1; transform: translateY(0); }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateX(18px); }
+          to   { opacity: 1; transform: translateX(0); }
         }
       `}</style>
     </div>
+  );
+}
+
+function GoogleIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
+      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+    </svg>
   );
 }
