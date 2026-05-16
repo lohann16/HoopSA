@@ -1,192 +1,142 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
-    <div className="min-h-screen bg-zinc-50 text-slate-900 dark:bg-black dark:text-zinc-100">
-      <main className="mx-auto flex w-full max-w-7xl flex-col gap-16 px-6 py-10 sm:px-8 lg:px-12">
-        {/* Hero */}
-        <section className="rounded-[32px] border border-zinc-200 bg-white/90 p-8 shadow-sm backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
-          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div className="space-y-6">
-              <p className="inline-flex rounded-full bg-emerald-100 px-4 py-1 text-sm font-semibold text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">
-                Live hoops action, all in one place
-              </p>
-              <h1 className="text-4xl font-semibold tracking-tight text-slate-950 dark:text-zinc-50 sm:text-5xl">
-                Find your next pickup game, follow live scores, and discover the best courts nearby.
-              </h1>
-              <p className="max-w-2xl text-base leading-8 text-slate-600 dark:text-zinc-400">
-                HoopSA brings players, events, teams, and courts together so you can stay connected to the community and always know what’s happening on the court.
-              </p>
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                <a href="#live-scores" className="inline-flex h-12 items-center justify-center rounded-full bg-slate-950 px-6 text-sm font-semibold text-white transition hover:bg-slate-800">
-                  See Live Scores
-                </a>
-                <a href="#court-discovery" className="inline-flex h-12 items-center justify-center rounded-full border border-slate-300 bg-white px-6 text-sm font-semibold text-slate-900 transition hover:border-slate-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:border-zinc-500">
-                  Explore Courts
-                </a>
-              </div>
-            </div>
-            <div className="rounded-[28px] bg-slate-950 p-6 text-white shadow-lg sm:p-8">
-              <div className="mb-6 rounded-3xl border border-white/10 bg-white/5 p-6">
-                <p className="text-sm uppercase tracking-[0.3em] text-emerald-300">Today’s Top Match</p>
-                <h2 className="mt-4 text-2xl font-semibold">Northside Knights vs Downtown Ballers</h2>
-                <p className="mt-2 text-sm text-zinc-300">3:15 PM · Court 7 · 8 players remaining</p>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-3xl bg-zinc-900/80 p-5">
-                  <p className="text-sm uppercase tracking-[0.2em] text-zinc-400">Win Streak</p>
-                  <p className="mt-3 text-3xl font-semibold">7</p>
-                </div>
-                <div className="rounded-3xl bg-zinc-900/80 p-5">
-                  <p className="text-sm uppercase tracking-[0.2em] text-zinc-400">Courts Active</p>
-                  <p className="mt-3 text-3xl font-semibold">12</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+    <div className="relative min-h-screen overflow-x-hidden bg-[#0e1210] text-white font-sans">
 
-        {/* Live Scores Preview */}
-        <section id="live-scores" className="space-y-6">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-700 dark:text-emerald-300">Live Scores Preview</p>
-              <h2 className="mt-2 text-3xl font-semibold text-slate-950 dark:text-zinc-50">Real-time game updates</h2>
+      {/* Background layers */}
+      <div className="fixed inset-0 z-0 bg-[radial-gradient(ellipse_70%_55%_at_65%_-5%,rgba(29,158,117,0.22)_0%,transparent_65%),radial-gradient(ellipse_45%_35%_at_10%_90%,rgba(29,158,117,0.10)_0%,transparent_65%)]" />
+      <div
+        className="fixed inset-0 z-0 opacity-[0.035]"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,1) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,1) 60px)",
+        }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-5xl px-7">
+
+        {/* NAV */}
+        <nav className="flex items-center justify-between pt-8">
+          <Link href="/" className="flex items-center gap-2 font-['Barlow_Condensed'] text-[28px] font-extrabold tracking-[0.05em] text-white no-underline">
+            <span className="inline-block h-[11px] w-[11px] animate-pulse rounded-full bg-[#1D9E75]" />
+            HOOPSA
+          </Link>
+          <div className="flex gap-3">
+            <Link
+              href="/signin"
+              className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 bg-transparent px-6 text-sm font-medium text-white/60 transition hover:border-white/30 hover:bg-white/7 hover:text-white"
+            >
+              Sign in
+            </Link>
+            <Link
+              href="/signup"
+              className="inline-flex h-11 items-center justify-center rounded-full bg-[#1D9E75] px-6 text-sm font-medium text-white transition hover:bg-[#22b887] hover:shadow-[0_6px_22px_rgba(29,158,117,0.4)] hover:-translate-y-px"
+            >
+              Get started
+            </Link>
+          </div>
+        </nav>
+
+        {/* HERO */}
+        <div className="grid grid-cols-1 items-center gap-14 py-24 lg:grid-cols-2 lg:gap-16">
+
+          {/* Left */}
+          <div className="animate-[fadeUp_0.6s_ease_0.1s_both]">
+            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#5DCAA5]/30 bg-[#1D9E75]/12 px-4 py-[6px] text-xs font-medium uppercase tracking-[0.09em] text-[#5DCAA5]">
+              <span className="inline-block h-[6px] w-[6px] animate-pulse rounded-full bg-[#5DCAA5]" />
+              12 courts active now
             </div>
-            <p className="max-w-xl text-sm leading-6 text-slate-600 dark:text-zinc-400">
-              Follow current scores from pickup games, local leagues, and weekend tournaments across your city.
+            <h1 className="mb-6 font-['Barlow_Condensed'] text-[clamp(58px,7vw,86px)] font-extrabold leading-[0.93] tracking-tight text-white">
+              Your city.<br />
+              <span className="text-[#1D9E75]">Your game.</span><br />
+              Your crew.
+            </h1>
+            <p className="mb-11 max-w-[380px] text-base leading-[1.7] text-white/50">
+              Find pickup games, follow live scores, and discover the best courts near you — all in one app.
             </p>
+            <p className="mb-3 text-xs uppercase tracking-[0.08em] text-white/30">Join the community</p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/signup"
+                className="inline-flex items-center rounded-full bg-[#1D9E75] px-9 py-[15px] text-[15px] font-medium text-white transition hover:bg-[#22b887] hover:-translate-y-0.5 hover:shadow-[0_8px_26px_rgba(29,158,117,0.4)]"
+              >
+                Create account
+              </Link>
+              <Link
+                href="/signin"
+                className="inline-flex items-center rounded-full border border-white/15 bg-transparent px-9 py-[15px] text-[15px] font-medium text-white/70 transition hover:border-white/32 hover:bg-white/5 hover:text-white"
+              >
+                Sign in
+              </Link>
+            </div>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {[
-              { title: "Court 1", teams: "Eastside Rims vs Turf Titans", score: "48 - 42", status: "Q4 · 6:12" },
-              { title: "Court 3", teams: "City Hoops vs Jersey Jumpers", score: "61 - 61", status: "OT · 1:24" },
-              { title: "Court 5", teams: "Skyline Crew vs River Shooters", score: "29 - 37", status: "Halftime" },
-              { title: "Court 8", teams: "Westside Wolves vs Harbor Heat", score: "82 - 77", status: "Final" },
-            ].map((item) => (
-              <article key={item.title} className="rounded-[28px] border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500 dark:text-zinc-400">{item.title}</p>
-                <h3 className="mt-4 text-xl font-semibold text-slate-950 dark:text-zinc-100">{item.teams}</h3>
-                <p className="mt-3 text-4xl font-semibold text-emerald-600 dark:text-emerald-400">{item.score}</p>
-                <p className="mt-2 text-sm text-slate-500 dark:text-zinc-400">{item.status}</p>
-              </article>
-            ))}
-          </div>
-        </section>
 
-        {/* Trending Players */}
-        <section className="space-y-6">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-zinc-400">Trending Players</p>
-            <h2 className="mt-2 text-3xl font-semibold text-slate-950 dark:text-zinc-50">Players making moves this week</h2>
-          </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {[
-              { name: "Mia Carter", description: "27 PPG · 9 AST · 6 REB", badge: "Hot streak" },
-              { name: "Jalen Cruz", description: "18 PPG · 4 STL · 3 BLK", badge: "Defense leader" },
-              { name: "Trey Morgan", description: "15 PPG · 12 REB · 5 BLK", badge: "Double-double" },
-            ].map((player) => (
-              <div key={player.name} className="rounded-[28px] border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-lg font-semibold text-slate-950 dark:text-zinc-50">{player.name}</p>
-                    <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">{player.description}</p>
-                  </div>
-                  <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">{player.badge}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Upcoming Events */}
-        <section className="space-y-6">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-zinc-400">Upcoming Events</p>
-            <h2 className="mt-2 text-3xl font-semibold text-slate-950 dark:text-zinc-50">Mark your calendar</h2>
-          </div>
-          <div className="grid gap-4 lg:grid-cols-3">
-            {[
-              { title: "Sunday Park Jam", date: "May 18 · 10:00 AM", location: "Riverside Courts" },
-              { title: "Alley-Oop Tournament", date: "May 22 · 5:30 PM", location: "Central Gym" },
-              { title: "Citywide Pickup", date: "May 25 · 8:00 PM", location: "North Community Center" },
-            ].map((event) => (
-              <article key={event.title} className="rounded-[28px] border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-                <h3 className="text-xl font-semibold text-slate-950 dark:text-zinc-50">{event.title}</h3>
-                <p className="mt-3 text-sm text-slate-600 dark:text-zinc-400">{event.date}</p>
-                <p className="mt-2 text-sm font-medium text-slate-900 dark:text-zinc-200">{event.location}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        {/* Court Discovery */}
-        <section id="court-discovery" className="space-y-6">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-zinc-400">Court Discovery</p>
-            <h2 className="mt-2 text-3xl font-semibold text-slate-950 dark:text-zinc-50">Find courts near you</h2>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {[
-              { name: "Downtown Court", distance: "0.8 mi", features: "Indoor, lights, 3 hoops" },
-              { name: "Harbor Park", distance: "1.6 mi", features: "Outdoor, full court, bleachers" },
-              { name: "Westview Arena", distance: "2.3 mi", features: "Covered court, trainers, night sessions" },
-            ].map((court) => (
-              <div key={court.name} className="rounded-[28px] border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-950 dark:text-zinc-50">{court.name}</h3>
-                    <p className="mt-2 text-sm text-slate-600 dark:text-zinc-400">{court.features}</p>
-                  </div>
-                  <span className="rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-700 dark:bg-zinc-800 dark:text-zinc-200">{court.distance}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Community Highlights */}
-        <section className="rounded-[32px] border border-zinc-200 bg-white/90 p-8 shadow-sm backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
-          <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
-            <div className="space-y-5">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-zinc-400">Community Highlights</p>
-              <h2 className="text-3xl font-semibold text-slate-950 dark:text-zinc-50">See how the local basketball community is thriving.</h2>
-              <p className="max-w-xl text-base leading-8 text-slate-600 dark:text-zinc-400">
-                From new player connections to community tournaments and charity pick-up sessions, HoopSA helps every player stay involved and inspired.
+          {/* Right panel */}
+          <div className="animate-[fadeUp_0.6s_ease_0.25s_both] rounded-[28px] border border-white/9 bg-white/[0.035] p-8 backdrop-blur-xl">
+            <p className="mb-4 text-xs uppercase tracking-[0.12em] text-[#5DCAA5]">Today's top match</p>
+            <div className="mb-4 rounded-[20px] border border-white/8 bg-white/5 p-5">
+              <p className="mb-2 font-['Barlow_Condensed'] text-[22px] font-semibold leading-[1.1]">
+                Northside Knights vs Downtown Ballers
               </p>
+              <p className="text-[13px] text-white/40">3:15 PM · Court 7 · 8 spots remaining</p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[28px] bg-slate-100 p-6 dark:bg-zinc-900">
-                <p className="text-sm uppercase tracking-[0.24em] text-slate-500 dark:text-zinc-400">New Crews</p>
-                <p className="mt-3 text-3xl font-semibold text-slate-950 dark:text-zinc-50">42+</p>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-[16px] bg-black/30 p-[18px]">
+                <p className="mb-2 text-[11px] uppercase tracking-[0.1em] text-white/35">Win streak</p>
+                <p className="font-['Barlow_Condensed'] text-[36px] font-extrabold leading-none">7</p>
               </div>
-              <div className="rounded-[28px] bg-slate-100 p-6 dark:bg-zinc-900">
-                <p className="text-sm uppercase tracking-[0.24em] text-slate-500 dark:text-zinc-400">Matches Shared</p>
-                <p className="mt-3 text-3xl font-semibold text-slate-950 dark:text-zinc-50">1.2K</p>
+              <div className="rounded-[16px] bg-black/30 p-[18px]">
+                <p className="mb-2 text-[11px] uppercase tracking-[0.1em] text-white/35">Courts live</p>
+                <p className="font-['Barlow_Condensed'] text-[36px] font-extrabold leading-none">12</p>
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* CTA Section */}
-        <section className="rounded-[32px] bg-slate-950 px-8 py-10 text-white shadow-xl sm:px-12">
-          <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-300">Ready to play?</p>
-              <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">Jump into your next game and keep the whole crew in the loop.</h2>
-              <p className="mt-4 max-w-xl text-base leading-7 text-slate-300">
-                Discover courts, join games, and follow live scores so every pickup feels organized and exciting.
-              </p>
+        {/* STATS */}
+        <div className="animate-[fadeUp_0.6s_ease_0.4s_both] grid grid-cols-3 border-t border-white/6 py-12">
+          {[
+            { num: "2.4K", label: "Active players" },
+            { num: "180+", label: "Courts mapped" },
+            { num: "1.2K", label: "Games played" },
+          ].map((s, i) => (
+            <div key={s.label} className={`text-center px-5 ${i > 0 ? "border-l border-white/6" : ""}`}>
+              <p className="font-['Barlow_Condensed'] text-[44px] font-extrabold leading-none text-white">{s.num}</p>
+              <p className="mt-[7px] text-xs uppercase tracking-[0.1em] text-white/32">{s.label}</p>
             </div>
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <a href="#court-discovery" className="inline-flex h-12 items-center justify-center rounded-full bg-emerald-500 px-6 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400">
-                Explore Courts
-              </a>
-              <a href="#upcoming-events" className="inline-flex h-12 items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 text-sm font-semibold text-white transition hover:bg-white/15">
-                View Events
-              </a>
+          ))}
+        </div>
+
+        {/* FEATURES */}
+        <div className="animate-[fadeUp_0.6s_ease_0.5s_both] grid grid-cols-1 gap-4 pb-20 md:grid-cols-3">
+          {[
+            { icon: "🏀", title: "Live Scores", desc: "Follow pickup games, local leagues, and weekend tournaments in real time." },
+            { icon: "📍", title: "Court Discovery", desc: "Find the best courts near you with hours, features, and live availability." },
+            { icon: "🤝", title: "Build Your Crew", desc: "Connect with players, form teams, and organise games in your neighbourhood." },
+          ].map((f) => (
+            <div
+              key={f.title}
+              className="group rounded-[22px] border border-white/7 bg-white/[0.03] p-7 transition hover:border-[#1D9E75]/30 hover:bg-[#1D9E75]/5"
+            >
+              <div className="mb-[18px] flex h-11 w-11 items-center justify-center rounded-[12px] bg-[#1D9E75]/14 text-[22px]">
+                {f.icon}
+              </div>
+              <p className="mb-2 text-base font-medium text-white">{f.title}</p>
+              <p className="text-sm leading-[1.6] text-white/40">{f.desc}</p>
             </div>
-          </div>
-        </section>
-      </main>
+          ))}
+        </div>
+
+      </div>
+
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=DM+Sans:wght@400;500&display=swap');
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(22px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 }
