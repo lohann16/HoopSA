@@ -61,16 +61,16 @@ const events = [
     spots: 20,
     joined: false,
   },
-  {
-    id: 6,
-    title: "Summer League Opener",
-    date: "Jun 14",
-    time: "4:00 PM",
-    location: "Central Gym",
-    type: "League",
-    spots: 0,
-    joined: false,
-  },
+  // {
+  //   id: 6,
+  //   title: "Summer League Opener",
+  //   date: "Jun 14",
+  //   time: "4:00 PM",
+  //   location: "Central Gym",
+  //   type: "League",
+  //   spots: 0,
+  //   joined: false,
+  // },
 ];
 
 const typeColors: Record<string, string> = {
