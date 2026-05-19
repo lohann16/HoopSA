@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=DM+Sans:wght@400;500;600&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -49,15 +50,15 @@
 }
 
 :root {
-   --background: #0a0a0a;
+  --background: #0a0a0a;
   --foreground: #ffffff;
   --card: #111827;
   --card-foreground: #ffffff;
   --popover: #111827;
   --popover-foreground: #ffffff;
-   --primary: #ff6b00;
+  --primary: #ff6b00;
   --primary-foreground: oklch(0.986 0.002 67.8);
-   --secondary: #111827;
+  --secondary: #111827;
   --secondary-foreground: oklch(0.214 0.009 43.1);
   --muted: oklch(0.96 0.002 17.2);
   --muted-foreground: oklch(0.547 0.021 43.1);
@@ -128,4 +129,40 @@
   html {
     @apply font-sans;
   }
+}
+
+/* ── HoopSA global animations & resets ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* ── HoopSA input resets ── */
+.hoopsa input::placeholder {
+  color: rgba(255, 255, 255, 0.22);
+}
+.hoopsa input:focus {
+  outline: none;
+}
+
+/* ── HoopSA scrollbar ── */
+.hoopsa ::-webkit-scrollbar {
+  width: 4px;
+}
+.hoopsa ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.hoopsa ::-webkit-scrollbar-thumb {
+  background: rgba(29, 158, 117, 0.3);
+  border-radius: 99px;
 }

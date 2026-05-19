@@ -1,15 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Sans, Playfair_Display } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Noto_Sans,
+  Playfair_Display,
+  Barlow_Condensed,
+  DM_Sans,
+} from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/src/lib/utils";
-import { Inter } from "next/font/google";
 
-const inter = Inter({
+const inter = Inter({ subsets: ["latin"] });
+
+const playfairDisplayHeading = Playfair_Display({
   subsets: ["latin"],
+  variable: "--font-heading",
 });
-const playfairDisplayHeading = Playfair_Display({subsets:['latin'],variable:'--font-heading'});
 
-const notoSans = Noto_Sans({subsets:['latin'],variable:'--font-sans'});
+const notoSans = Noto_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +31,18 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["600", "800"],
+  variable: "--font-barlow",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-dm",
 });
 
 export const metadata: Metadata = {
@@ -34,7 +58,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", notoSans.variable, playfairDisplayHeading.variable)}
+      className={cn(
+        "h-full antialiased font-sans",
+        geistSans.variable,
+        geistMono.variable,
+        notoSans.variable,
+        playfairDisplayHeading.variable,
+        barlowCondensed.variable,
+        dmSans.variable,
+      )}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
