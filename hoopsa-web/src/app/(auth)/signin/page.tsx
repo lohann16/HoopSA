@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function SignUp() {
+export default function SignIn() {
   return (
     <div className="flex min-h-screen bg-[#0e1210] font-sans text-white lg:grid lg:grid-cols-2">
 
@@ -25,13 +25,13 @@ export default function SignUp() {
 
         {/* Body */}
         <div className="relative z-10 pb-6">
-          <p className="mb-5 text-xs uppercase tracking-[0.12em] text-[#5DCAA5]">Free to join</p>
+          <p className="mb-5 text-xs uppercase tracking-[0.12em] text-[#5DCAA5]">Welcome back</p>
           <h2 className="mb-6 font-['Barlow_Condensed'] text-[clamp(44px,4.5vw,64px)] font-extrabold leading-[0.93] text-white">
-            Join the<br />
-            <span className="text-[#1D9E75]">movement.</span>
+            Back on<br />
+            <span className="text-[#1D9E75]">the court.</span>
           </h2>
           <p className="mb-8 max-w-[320px] text-[15px] leading-[1.7] text-white/45">
-            Thousands of ballers are already on HoopSA. Find games, build your rep, and never miss a run again.
+            Games are happening right now. Sign in and get back in the mix — your crew is waiting.
           </p>
 
           {/* Perks */}
@@ -68,42 +68,16 @@ export default function SignUp() {
           </Link>
 
           <h1 className="mb-2 font-['Barlow_Condensed'] text-[42px] font-extrabold leading-none tracking-tight text-white">
-            Create account
+            Sign in
           </h1>
           <p className="mb-8 text-[15px] text-white/40">
-            Already have one?{" "}
-            <Link href="/signin" className="font-medium text-[#5DCAA5] no-underline hover:underline">
-              Sign in
+            No account?{" "}
+            <Link href="/signup" className="font-medium text-[#5DCAA5] no-underline hover:underline">
+              Create one free
             </Link>
           </p>
 
           <div className="space-y-4">
-            {/* Name row */}
-            <div className="grid grid-cols-2 gap-3">
-              <div>
-                <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
-                  First name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Jordan"
-                  autoComplete="given-name"
-                  className="w-full rounded-[14px] border border-white/9 bg-white/5 px-[18px] py-[14px] text-[15px] text-white outline-none placeholder:text-white/18 transition focus:border-[#1D9E75]/55 focus:bg-[#1D9E75]/5"
-                />
-              </div>
-              <div>
-                <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
-                  Last name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Lee"
-                  autoComplete="family-name"
-                  className="w-full rounded-[14px] border border-white/9 bg-white/5 px-[18px] py-[14px] text-[15px] text-white outline-none placeholder:text-white/18 transition focus:border-[#1D9E75]/55 focus:bg-[#1D9E75]/5"
-                />
-              </div>
-            </div>
-
             {/* Email */}
             <div>
               <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
@@ -119,26 +93,18 @@ export default function SignUp() {
 
             {/* Password */}
             <div>
-              <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
-                Password
-              </label>
+              <div className="mb-[9px] flex items-center justify-between">
+                <label className="text-xs font-medium uppercase tracking-[0.07em] text-white/38">
+                  Password
+                </label>
+                <Link href="/forgot-password" className="text-xs text-white/35 hover:text-[#5DCAA5] transition">
+                  Forgot password?
+                </Link>
+              </div>
               <input
                 type="password"
-                placeholder="Create a strong password"
-                autoComplete="new-password"
-                className="w-full rounded-[14px] border border-white/9 bg-white/5 px-[18px] py-[14px] text-[15px] text-white outline-none placeholder:text-white/18 transition focus:border-[#1D9E75]/55 focus:bg-[#1D9E75]/5"
-              />
-            </div>
-
-            {/* City */}
-            <div>
-              <label className="mb-[9px] block text-xs font-medium uppercase tracking-[0.07em] text-white/38">
-                Your city
-              </label>
-              <input
-                type="text"
-                placeholder="e.g. Johannesburg"
-                autoComplete="address-level2"
+                placeholder="Your password"
+                autoComplete="current-password"
                 className="w-full rounded-[14px] border border-white/9 bg-white/5 px-[18px] py-[14px] text-[15px] text-white outline-none placeholder:text-white/18 transition focus:border-[#1D9E75]/55 focus:bg-[#1D9E75]/5"
               />
             </div>
@@ -146,13 +112,13 @@ export default function SignUp() {
 
           {/* Submit */}
           <button className="mt-6 w-full rounded-[14px] bg-[#1D9E75] py-[15px] text-[15px] font-medium text-white transition hover:bg-[#22b887] hover:-translate-y-px hover:shadow-[0_8px_24px_rgba(29,158,117,0.38)]">
-            Create my account
+            Sign in
           </button>
 
           {/* Divider */}
           <div className="my-5 flex items-center gap-3 text-xs tracking-[0.06em] text-white/20">
             <span className="flex-1 border-t border-white/7" />
-            or sign up with
+            or continue with
             <span className="flex-1 border-t border-white/7" />
           </div>
 
@@ -162,17 +128,10 @@ export default function SignUp() {
             Google
           </button>
 
-          <p className="mt-4 text-center text-xs leading-[1.6] text-white/22">
-            By creating an account you agree to our{" "}
-            <Link href="#" className="text-white/40 hover:text-[#5DCAA5]">Terms of Service</Link>{" "}
-            and{" "}
-            <Link href="#" className="text-white/40 hover:text-[#5DCAA5]">Privacy Policy</Link>
-          </p>
-
           <p className="mt-5 text-center text-sm text-white/30">
-            Already a baller?{" "}
-            <Link href="/signin" className="font-medium text-[#5DCAA5] no-underline hover:underline">
-              Sign in
+            New to HoopSA?{" "}
+            <Link href="/signup" className="font-medium text-[#5DCAA5] no-underline hover:underline">
+              Create an account
             </Link>
           </p>
         </div>
